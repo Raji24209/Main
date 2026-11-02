@@ -1,1 +1,792 @@
-"# Main" 
+1, User module:
+
+
+package Java;
+import java.util.*;
+class user {
+	int userid;
+	String username;
+	String email;
+	String userrole;
+	void registerUser() {
+		Scanner sc= new Scanner(System.in);
+		System.out.println("enter userid");
+		userid=sc.nextInt();
+		System.out.println("enter username");
+		sc.nextLine();
+		username=sc.nextLine();
+		System.out.println("enter email");
+		email=sc.next();
+		System.out.println("enter userrole");
+		userrole=sc.next();
+		System.out.println("userid="+userid+"\n"+"username="+username+"\n"+"email="+email+"\n"+"userrole="+userrole);
+	}
+	void updateUser() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter new username");
+		username=sc.nextLine();
+		System.out.println("enter new email");
+		email=sc.next();
+		System.out.println("enter new userrole");
+		userrole=sc.next();
+		System.out.println("username="+username+"\n"+"email="+email+"\n"+"userrole="+userrole);
+	}
+	void displayUser() {
+		System.out.println("\n----------User Information------------");
+		System.out.println("userid    :"+userid);
+		System.out.println("username  :"+username);
+		System.out.println("email     :"+email);
+		System.out.println("userrole  :"+userrole);
+	}
+}
+public class UserModule {
+	public static void main(String[] args) {
+		user u=new user();
+		u.registerUser();
+		u.displayUser();
+		u.updateUser();
+	}
+}
+
+2, Auction Item Module:
+package Java;
+import java.util.Scanner;
+
+class AuctionItem {
+    int itemId;
+    String itemName;
+    String category;
+    double startingPrice;
+    void addItem() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Item ID: ");
+        itemId = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Enter Item Name: ");
+        itemName = sc.nextLine();
+        System.out.println("Enter Category: ");
+        category = sc.nextLine();
+        System.out.println("Enter Starting Price: ");
+        startingPrice = sc.nextDouble();
+        System.out.println("Auction item added successfully!");
+    }
+    void updateItem() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter new Item Name: ");
+        itemName = sc.nextLine();
+        System.out.println("Enter new Category: ");
+        category = sc.nextLine();
+        System.out.print("Enter new Starting Price: ");
+        startingPrice = sc.nextDouble();
+        System.out.println("Auction item updated successfully!");
+    }
+    void displayItem() {
+        System.out.println("\n--- Auction Item Details ---");
+        System.out.println("Item ID        : " + itemId);
+        System.out.println("Item Name      : " + itemName);
+        System.out.println("Category       : " + category);
+        System.out.println("Starting Price : " + startingPrice);
+    }
+}
+
+public class AuctionItemModule {
+    public static void main(String[] args) {
+
+        AuctionItem item = new AuctionItem();
+        item.addItem();
+        item.displayItem();
+        item.updateItem();
+        item.displayItem();
+    }
+}
+
+3,Auction Module:
+
+package Java;
+import java.util.Scanner;
+
+class Auction {
+    int auctionId;
+    int itemId;
+    String startTime;
+    String endTime;
+    String status;
+    void createAuction() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Auction ID: ");
+        auctionId = sc.nextInt();
+        System.out.print("Enter Item ID: ");
+        itemId = sc.nextInt();
+        sc.nextLine();
+        System.out.print("Enter Start Time: ");
+        startTime = sc.nextLine();
+        System.out.print("Enter End Time: ");
+        endTime = sc.nextLine();
+        status = "Created";
+        System.out.println("Auction created successfully!");
+    }
+    void startAuction() {
+        status = "Started";
+        System.out.println("Auction started successfully!");
+    }
+    void closeAuction() {
+        status = "Closed";
+        System.out.println("Auction closed successfully!");
+    }
+    void displayAuction() {
+        System.out.println("\n--- Auction Details ---");
+        System.out.println("Auction ID : " + auctionId);
+        System.out.println("Item ID    : " + itemId);
+        System.out.println("Start Time : " + startTime);
+        System.out.println("End Time   : " + endTime);
+        System.out.println("Status     : " + status);
+    }
+}
+public class AuctionModule {
+    public static void main(String[] args) {
+        Auction a = new Auction();
+        a.createAuction();
+        a.displayAuction();
+        a.startAuction();
+        a.displayAuction();
+        a.closeAuction();
+        a.displayAuction();
+    }
+}
+
+4, Bid Module:
+
+package Java;
+import java.util.Scanner;
+
+class Bid {
+    int bidId;
+    int auctionId;
+    int bidderId;
+    double bidAmount;
+    String bidTime;
+    void placeBid() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Bid ID: ");
+        bidId = sc.nextInt();
+        System.out.print("Enter Auction ID: ");
+        auctionId = sc.nextInt();
+        System.out.print("Enter Bidder ID: ");
+        bidderId = sc.nextInt();
+        System.out.print("Enter Bid Amount: ");
+        bidAmount = sc.nextDouble();
+        sc.nextLine();
+        System.out.print("Enter Bid Time: ");
+        bidTime = sc.nextLine();
+        System.out.println("Bid placed successfully!");
+    }
+    void updateBid() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Updated Bid Amount: ");
+        bidAmount = sc.nextDouble();
+        sc.nextLine();
+        System.out.print("Enter Updated Bid Time: ");
+        bidTime = sc.nextLine();
+        System.out.println("Bid updated successfully!");
+    }
+    void displayBid() {
+        System.out.println("\n--- Bid Details ---");
+        System.out.println("Bid ID      : " + bidId);
+        System.out.println("Auction ID  : " + auctionId);
+        System.out.println("Bidder ID   : " + bidderId);
+        System.out.println("Bid Amount  : " + bidAmount);
+        System.out.println("Bid Time    : " + bidTime);
+    }
+    void determineHighestBid(double highestBid) {
+        if (bidAmount >= highestBid) {
+            System.out.println("This is the highest bid.");
+        } else {
+            System.out.println("There is a higher bid.");
+        }
+    }
+}
+public class BidModule {
+    public static void main(String[] args) {
+        Bid b = new Bid();
+        b.placeBid();
+        b.displayBid();
+        b.updateBid();
+        b.displayBid();
+        Scanner sc = new Scanner(System.in);
+        System.out.print("\nEnter current highest bid: ");
+        double highestBid = sc.nextDouble();
+        b.determineHighestBid(highestBid);
+    }
+}
+
+5, Package Module:
+
+package Java;
+import java.util.Scanner;
+
+class Payment {
+    int paymentId;
+    int auctionId;
+    double amount;
+    String paymentMode;
+    String paymentStatus;
+    void calculateAmount() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Auction ID: ");
+        auctionId = sc.nextInt();
+        System.out.print("Enter Payment Amount: ");
+        amount = sc.nextDouble();
+        System.out.println("Final Payable Amount: " + amount);
+    }
+    void makePayment() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Payment ID: ");
+        paymentId = sc.nextInt();
+        sc.nextLine();
+        System.out.print("Enter Payment Mode (UPI/Card/NetBanking): ");
+        paymentMode = sc.nextLine();
+        paymentStatus = "Successful";
+        System.out.println("Payment processed successfully!");
+    }
+    void verifyPayment() {
+        if (paymentStatus.equals("Successful")) {
+            System.out.println("Payment verified successfully.");
+        } else {
+            System.out.println("Payment verification failed.");
+        }
+    }
+    void displayPayment() {
+        System.out.println("\n--- Payment Details ---");
+        System.out.println("Payment ID     : " + paymentId);
+        System.out.println("Auction ID     : " + auctionId);
+        System.out.println("Amount         : " + amount);
+        System.out.println("Payment Mode   : " + paymentMode);
+        System.out.println("Payment Status : " + paymentStatus);
+    }
+}
+public class PaymentModule {
+    public static void main(String[] args) {
+        Payment p = new Payment();
+        p.calculateAmount();
+        p.makePayment();
+        p.verifyPayment();
+        p.displayPayment();
+    }
+}
+
+6, validate Service Module:
+
+package Java;
+import java.util.Scanner;
+
+class ValidateService {
+    String email;
+    double bidAmount;
+    double startingPrice;
+    int auctionId;
+    boolean validateEmail() {
+        if (email.contains("@") && email.endsWith(".com")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    boolean validateBidAmount() {
+        if (bidAmount > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    boolean validateStartingPrice() {
+        if (startingPrice > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    boolean validateAuctionId() {
+        if (auctionId > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+public class ValidateServiceModule {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ValidateService v = new ValidateService();
+        System.out.print("Enter Email: ");
+        v.email = sc.nextLine();
+        System.out.print("Enter Starting Price: ");
+        v.startingPrice = sc.nextDouble();
+        System.out.print("Enter Bid Amount: ");
+        v.bidAmount = sc.nextDouble();
+        System.out.print("Enter Auction ID: ");
+        v.auctionId = sc.nextInt();
+        System.out.println("\n--- Validation Results ---");
+        if (v.validateEmail()) {
+            System.out.println("Email: Valid");
+        } else {
+            System.out.println("Email: Invalid");
+        }
+        if (v.validateStartingPrice()) {
+            System.out.println("Starting Price: Valid");
+        } else {
+            System.out.println("Starting Price: Invalid");
+        }
+        if (v.validateBidAmount()) {
+            System.out.println("Bid Amount: Valid");
+        } else {
+            System.out.println("Bid Amount: Invalid");
+        }
+        if (v.validateAuctionId()) {
+            System.out.println("Auction ID: Valid");
+        } else {
+            System.out.println("Auction ID: Invalid");
+        }
+    }
+}
+
+7, Seach Service Module:
+
+package Java;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+class User {
+    int userId;
+    String userName;
+    User(int userId, String userName) {
+        this.userId = userId;
+        this.userName = userName;
+    }
+}
+class AuctionItem {
+    int itemId;
+    String itemName;
+
+    AuctionItem(int itemId, String itemName) {
+        this.itemId = itemId;
+        this.itemName = itemName;
+    }
+}
+class Auction {
+    int auctionId;
+    int itemId;
+
+    Auction(int auctionId, int itemId) {
+        this.auctionId = auctionId;
+        this.itemId = itemId;
+    }
+}
+class Bid {
+    int bidId;
+    int auctionId;
+    double bidAmount;
+    Bid(int bidId, int auctionId, double bidAmount) {
+        this.bidId = bidId;
+        this.auctionId = auctionId;
+        this.bidAmount = bidAmount;
+    }
+}
+class SearchService {
+    List<User> userList = new ArrayList<>();
+    List<AuctionItem> itemList = new ArrayList<>();
+    List<Auction> auctionList = new ArrayList<>();
+    List<Bid> bidList = new ArrayList<>();
+    void searchUser(int id) {
+        for (User u : userList) {
+            if (u.userId == id) {
+                System.out.println("User Found");
+                System.out.println("User ID   : " + u.userId);
+                System.out.println("User Name : " + u.userName);
+                return;
+            }
+        }
+        System.out.println("User not found.");
+    }
+    void searchItem(int id) {
+        for (AuctionItem item : itemList) {
+            if (item.itemId == id) {
+                System.out.println("Item Found");
+                System.out.println("Item ID   : " + item.itemId);
+                System.out.println("Item Name : " + item.itemName);
+                return;
+            }
+        }
+        System.out.println("Item not found.");
+    }
+    void searchAuction(int id) {
+        for (Auction a : auctionList) {
+            if (a.auctionId == id) {
+                System.out.println("Auction Found");
+                System.out.println("Auction ID : " + a.auctionId);
+                System.out.println("Item ID    : " + a.itemId);
+                return;
+            }
+        }
+        System.out.println("Auction not found.");
+    }
+    void searchBid(int id) {
+        for (Bid b : bidList) {
+            if (b.bidId == id) {
+                System.out.println("Bid Found");
+                System.out.println("Bid ID     : " + b.bidId);
+                System.out.println("Auction ID : " + b.auctionId);
+                System.out.println("Bid Amount : " + b.bidAmount);
+                return;
+            }
+        }
+        System.out.println("Bid not found.");
+    }
+}
+public class SearchServiceModule {
+    public static void main(String[] args) {
+        SearchService service = new SearchService();
+        service.userList.add(new User(101, "Riya"));
+        service.userList.add(new User(102, "Rahul"));
+        service.itemList.add(new AuctionItem(201, "Laptop"));
+        service.itemList.add(new AuctionItem(202, "Mobile"));
+        service.auctionList.add(new Auction(301, 201));
+        service.auctionList.add(new Auction(302, 202));
+        service.bidList.add(new Bid(401, 301, 50000));
+        service.bidList.add(new Bid(402, 302, 25000));
+        Scanner sc = new Scanner(System.in);
+        System.out.println("1. Search User");
+        System.out.println("2. Search Item");
+        System.out.println("3. Search Auction");
+        System.out.println("4. Search Bid");
+        System.out.print("Enter your choice: ");
+        int choice = sc.nextInt();
+        System.out.print("Enter ID to search: ");
+        int id = sc.nextInt();
+        switch (choice) {
+            case 1:
+                service.searchUser(id);
+                break;
+            case 2:
+                service.searchItem(id);
+                break;
+            case 3:
+                service.searchAuction(id);
+                break;
+            case 4:
+                service.searchBid(id);
+                break;
+            default:
+                System.out.println("Invalid choice.");
+        }
+    }
+}
+
+
+8, Report Generation Service Module:
+
+package Java;
+class Auction {
+    int auctionId;
+    int itemId;
+    String startTime;
+    String endTime;
+    String status;
+    Auction(int auctionId, int itemId, String startTime, String endTime, String status) {
+        this.auctionId = auctionId;
+        this.itemId = itemId;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.status = status;
+    }
+}
+class Bid {
+    int bidId;
+    int auctionId;
+    int bidderId;
+    double bidAmount;
+    String bidTime;
+    Bid(int bidId, int auctionId, int bidderId, double bidAmount, String bidTime) {
+        this.bidId = bidId;
+        this.auctionId = auctionId;
+        this.bidderId = bidderId;
+        this.bidAmount = bidAmount;
+        this.bidTime = bidTime;
+    }
+}
+
+class Payment {
+    int paymentId;
+    int auctionId;
+    double amount;
+    String paymentMode;
+    String paymentStatus;
+    Payment(int paymentId, int auctionId, double amount, String paymentMode, String paymentStatus) {
+        this.paymentId = paymentId;
+        this.auctionId = auctionId;
+        this.amount = amount;
+        this.paymentMode = paymentMode;
+        this.paymentStatus = paymentStatus;
+    }
+}
+class ReportGenerationService {
+    Auction auction;
+    Bid bid;
+    Payment payment;
+    String reportTitle;
+    ReportGenerationService(Auction auction, Bid bid, Payment payment) {
+        this.auction = auction;
+        this.bid = bid;
+        this.payment = payment;
+    }
+    void generateAuctionReport() {
+        reportTitle = "Auction Report";
+
+        System.out.println("\n--- " + reportTitle + " ---");
+        System.out.println("Auction ID : " + auction.auctionId);
+        System.out.println("Item ID    : " + auction.itemId);
+        System.out.println("Start Time : " + auction.startTime);
+        System.out.println("End Time   : " + auction.endTime);
+        System.out.println("Status     : " + auction.status);
+    }
+    void generateBidReport() {
+        reportTitle = "Bid Report";
+        System.out.println("\n--- " + reportTitle + " ---");
+        System.out.println("Bid ID      : " + bid.bidId);
+        System.out.println("Auction ID  : " + bid.auctionId);
+        System.out.println("Bidder ID   : " + bid.bidderId);
+        System.out.println("Bid Amount  : " + bid.bidAmount);
+        System.out.println("Bid Time    : " + bid.bidTime);
+    }
+    void generateWinnerReport() {
+        reportTitle = "Winner Report";
+
+        System.out.println("\n--- " + reportTitle + " ---");
+        System.out.println("Auction ID : " + bid.auctionId);
+        System.out.println("Winner ID  : " + bid.bidderId);
+        System.out.println("Winning Bid: " + bid.bidAmount);
+    }
+    void generatePaymentReport() {
+        reportTitle = "Payment Report";
+        System.out.println("\n--- " + reportTitle + " ---");
+        System.out.println("Payment ID     : " + payment.paymentId);
+        System.out.println("Auction ID     : " + payment.auctionId);
+        System.out.println("Amount         : " + payment.amount);
+        System.out.println("Payment Mode   : " + payment.paymentMode);
+        System.out.println("Payment Status : " + payment.paymentStatus);
+    }
+}
+public class ReportGenerationServiceModule {
+    public static void main(String[] args) {
+        Auction auction = new Auction(301, 201, "10:00 AM", "12:00 PM", "Closed");
+        Bid bid = new Bid( 401, 301, 101, 55000, "11:45 AM");
+        Payment payment = new Payment(501, 301, 55000, "UPI", "Successful");
+        ReportGenerationService report =new ReportGenerationService(auction, bid, payment);
+        report.generateAuctionReport();
+        report.generateBidReport();
+        report.generateWinnerReport();
+        report.generatePaymentReport();
+    }
+}
+
+   9, Analysis Service Module:
+
+package Java;
+import java.util.*;
+import java.util.stream.Collectors;
+
+class Auction {
+    int auctionId;
+    String category;
+    Auction(int auctionId, String category) {
+        this.auctionId = auctionId;
+        this.category = category;
+    }
+}
+class Bid {
+    int bidId;
+    int auctionId;
+    double bidAmount;
+    Bid(int bidId, int auctionId, double bidAmount) {
+        this.bidId = bidId;
+        this.auctionId = auctionId;
+        this.bidAmount = bidAmount;
+    }
+}
+class AnalysisService {
+    List<Auction> auctionList;
+    List<Bid> bidList;
+    Map<String, Integer> categoryMap;
+
+    AnalysisService(List<Auction> auctionList, List<Bid> bidList) {
+        this.auctionList = auctionList;
+        this.bidList = bidList;
+        this.categoryMap = new HashMap<>();
+    }
+    void highestBidAnalysis() {
+        System.out.println("\n--- Highest Bid Analysis ---");
+
+        Map<Integer, Optional<Bid>> highestBids =bidList.stream().collect(Collectors.groupingBy(b -> b.auctionId,Collectors.maxBy(Comparator.comparingDouble(b -> b.bidAmount))));
+
+        highestBids.forEach((auctionId, bid) -> {System.out.println("Auction ID: " + auctionId +" | Highest Bid: " + bid.get().bidAmount);} );
+    }
+    void categoryWiseAuctions() {
+        System.out.println("\n--- Category-wise Auctions ---");
+
+        categoryMap = auctionList.stream().collect(Collectors.groupingBy(a -> a.category,Collectors.summingInt(a -> 1)));
+
+        categoryMap.forEach((category, count) ->
+                System.out.println(category + " : " + count));
+    }
+    void calculateAverageBid() {
+        System.out.println("\n--- Average Bid Analysis ---");
+
+        double average = bidList.stream()
+                .mapToDouble(b -> b.bidAmount)
+                .average()
+                .orElse(0.0);
+        System.out.println("Average Bid Amount: " + average);
+    }
+    void generateSummary() {
+        System.out.println("\n--- Auction Summary ---");
+
+        System.out.println("Total Auctions : " + auctionList.size());
+        System.out.println("Total Bids     : " + bidList.size());
+
+        double highest = bidList.stream()
+                .mapToDouble(b -> b.bidAmount)
+                .max()
+                .orElse(0.0);
+        System.out.println("Overall Highest Bid: " + highest);
+    }
+}
+public class AnalysisServiceModule {
+    public static void main(String[] args) {
+        List<Auction> auctionList = new ArrayList<>();
+        auctionList.add(new Auction(301, "Electronics"));
+        auctionList.add(new Auction(302, "Electronics"));
+        auctionList.add(new Auction(303, "Furniture"));
+        auctionList.add(new Auction(304, "Vehicles"));
+        List<Bid> bidList = new ArrayList<>();
+        bidList.add(new Bid(401, 301, 50000));
+        bidList.add(new Bid(402, 301, 55000));
+        bidList.add(new Bid(403, 302, 30000));
+        bidList.add(new Bid(404, 302, 35000));
+        bidList.add(new Bid(405, 303, 20000));
+        AnalysisService analysis =new AnalysisService(auctionList, bidList);
+        analysis.highestBidAnalysis();
+        analysis.categoryWiseAuctions();
+        analysis.calculateAverageBid();
+        analysis.generateSummary();
+    }
+}
+
+10, Main Module:
+
+package Java;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class User {
+    int userId;
+    String userName;
+    User(int userId, String userName) {
+        this.userId = userId;
+        this.userName = userName;
+    }
+}
+class Auction {
+    int auctionId;
+    int itemId;
+    Auction(int auctionId, int itemId) {
+        this.auctionId = auctionId;
+        this.itemId = itemId;
+    }
+}
+public class MainModule {
+    Scanner scanner = new Scanner(System.in);
+    ArrayList<User> userList = new ArrayList<>();
+    ArrayList<Auction> auctionList = new ArrayList<>();
+    void displayMenu() {
+        System.out.println("\n===== AUCTIONHUB =====");
+        System.out.println("Online Auction & Bidding System");
+        System.out.println("======================");
+        System.out.println("1. Register User");
+        System.out.println("2. View Users");
+        System.out.println("3. Create Auction");
+        System.out.println("4. View Auctions");
+        System.out.println("5. Exit");
+        System.out.print("Enter your choice: ");
+    }
+    void processChoice(int choice) {
+        switch (choice) {
+            case 1:
+                System.out.print("Enter User ID: ");
+                int userId = scanner.nextInt();
+                scanner.nextLine();
+                System.out.print("Enter User Name: ");
+                String userName = scanner.nextLine();
+                userList.add(new User(userId, userName));
+                System.out.println("User registered successfully!");
+                break;
+            case 2:
+                System.out.println("\n--- Registered Users ---");
+
+                if (userList.isEmpty()) {
+                    System.out.println("No users registered.");
+                } else {
+                    for (User u : userList) {System.out.println("User ID: " + u.userId +" | Name: " + u.userName);
+                    }
+                }
+                break;
+            case 3:
+                System.out.print("Enter Auction ID: ");
+                int auctionId = scanner.nextInt();
+
+                System.out.print("Enter Item ID: ");
+                int itemId = scanner.nextInt();
+
+                auctionList.add(new Auction(auctionId, itemId));
+
+                System.out.println("Auction created successfully!");
+                break;
+            case 4:
+                System.out.println("\n--- Auction Records ---");
+
+                if (auctionList.isEmpty()) {
+                    System.out.println("No auctions available.");
+                } else {
+                    for (Auction a : auctionList) {
+                        System.out.println(
+                            "Auction ID: " + a.auctionId +" | Item ID: " + a.itemId);
+                    }
+                }
+                break;
+
+            case 5:
+                exit();
+                break;
+
+            default:
+                System.out.println("Invalid choice. Please try again.");
+        }
+    }
+    void exit() {
+        System.out.println("\nThank you for using AUCTIONHUB!");
+        System.out.println("Application terminated safely.");
+    }
+    public static void main(String[] args) {
+        MainModule app = new MainModule();
+        int choice;
+        do {
+            app.displayMenu();
+            choice = app.scanner.nextInt();
+            if (choice >= 1 && choice <= 4) {
+                app.processChoice(choice);
+            } else if (choice == 5) {
+                app.exit();
+            } else {
+                System.out.println("Invalid choice.");
+            }
+        } while (choice != 5);
+    }          
